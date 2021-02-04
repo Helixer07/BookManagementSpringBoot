@@ -2,9 +2,11 @@ package com.example.SpringRestApi.Entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,15 +19,15 @@ public class BookDetails {
 	private int courseId;
 	private String bookName;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	@JoinColumn(name="author_author_id")
 	private Author author;
-	
 	private String courseName;
 
 	
-	public BookDetails(int bookId, int courseId, String bookName, Author author, String courseName) {
+	public BookDetails(int courseId, String bookName, Author author, String courseName){
 		super();
-		this.bookId = bookId;
+		//this.bookId = bookId;
 		this.courseId = courseId;
 		this.bookName = bookName;
 		this.author = author;

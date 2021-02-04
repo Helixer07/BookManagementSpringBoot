@@ -15,7 +15,7 @@ public interface BookRepository extends CrudRepository<BookDetails, Integer>{
 	public BookDetails findById(int id);
 	
 	public BookDetails findByCourseId(int id);
-
+	
 	@Query(value="select * from book_management a where a.course_name= :n " , nativeQuery=true )
 	public List<BookDetails> findByCourseName(@Param("n") String courseName);
 

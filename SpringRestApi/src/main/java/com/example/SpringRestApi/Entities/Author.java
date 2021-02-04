@@ -23,7 +23,6 @@ public class Author {
 		this.authorId = authorId;
 	}
 
-
 	public String getAuthorFirstName() {
 		return authorFirstName;
 	}
